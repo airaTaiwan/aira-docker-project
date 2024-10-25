@@ -1,0 +1,44 @@
+{
+  "name": "connect",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "pm2 start --watch",
+    "stop": "pm2 delete $npm_package_name",
+    "build": "cross-env NODE_ENV=production webpack --config ./webpack.config.js",
+    "build:dev": "cross-env NODE_ENV=development webpack --config ./webpack.config.js"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.3",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "express-fileupload": "^1.5.1",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "joi": "^17.13.3",
+    "jsonfile": "^6.1.0",
+    "lodash": "^4.17.21",
+    "mongodb": "^3.7.4",
+    "mqtt": "^5.10.1",
+    "nodemailer": "^6.9.15",
+    "request": "^2.88.2",
+    "uuidv4": "^6.2.13",
+    "ws": "^7.5.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "babel-loader": "^8.4.1",
+    "babel-preset-env": "^1.7.0",
+    "dotenv-webpack": "^8.1.0",
+    "javascript-obfuscator": "^4.1.1",
+    "license-checker-webpack-plugin": "^0.2.1",
+    "node-loader": "^2.0.0",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-node-externals": "^3.0.0",
+    "webpack-obfuscator": "^3.5.1"
+  }
+}

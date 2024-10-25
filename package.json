@@ -1,0 +1,37 @@
+{
+  "name": "aira-docker-project",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@9.9.0",
+  "description": "將產品打包成 Docker",
+  "license": "MIT",
+  "keywords": [],
+  "sideEffects": false,
+  "scripts": {
+    "major": "taze minor -wIr",
+    "lint": "eslint .",
+    "lint:fix": "nr lint --fix",
+    "typecheck": "tsc --noEmit",
+    "build": "cross-env NODE_ENV=production esno scripts/build.ts",
+    "build:dev": "cross-env NODE_ENV=development esno scripts/build.ts",
+    "deploy": "esno scripts/deploy.ts"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^3.3.2",
+    "@antfu/ni": "^0.23.0",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.5.4",
+    "bumpp": "^9.5.2",
+    "consola": "^3.2.3",
+    "cross-env": "^7.0.3",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.5",
+    "eslint": "^9.9.1",
+    "esno": "^4.8.0",
+    "js-yaml": "^4.1.0",
+    "pnpm": "^9.9.0",
+    "rimraf": "^6.0.1",
+    "taze": "^0.17.2",
+    "typescript": "^5.5.4"
+  }
+}

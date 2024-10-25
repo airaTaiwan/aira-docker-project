@@ -1,0 +1,28 @@
+services:
+  mongo:
+    image: mongo:7
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongo:/data/db
+    entrypoint:
+      [mongod, --port, '27017', --bind_ip_all, --replSet, rs0]
+    logging:
+      driver: json-file
+      options:
+        max-size: 1k
+        max-file: '3'
+    restart: always
+  mongosh:
+    depends_on:
+      - mongo
+    image: mongo:7
+    command: |
+      mongosh --host mongo --port 27017 --eval "\
+        const config = {_id: 'rs0', members: [{ _id: 0, host: 'mongo:27017'}]}\
+        try {\
+          rs.reconfig(config, {force: true})\
+        } catch {\
+          rs.initiate(config)\
+        }\
+      "
